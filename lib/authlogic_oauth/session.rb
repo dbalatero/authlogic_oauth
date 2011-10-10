@@ -49,6 +49,8 @@ module AuthlogicOauth
     private
 
       def authenticating_with_oauth?
+        return false unless controller
+
         # Initial request when user presses one of the button helpers
         (controller.params && !controller.params[:login_with_oauth].blank?) ||
         # When the oauth provider responds and we made the initial request
